@@ -17,7 +17,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mounted.');
 
             const users = [
                 { 'user': 'fred', 'age': 48 },
