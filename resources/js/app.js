@@ -5,6 +5,6 @@ import lodash from 'lodash'
 Vue.use(lodash)
 
 new Vue({
-    el: '#apps',
+    el: '#app',
    	render: h => h(EC)
 })
