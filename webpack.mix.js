@@ -19,6 +19,13 @@ mix.options({
 
 
 mix.webpackConfig({
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            '@': __dirname + '/resources/js',
+            '~': __dirname + '/resources/js/pages',
+        },
+    },
     devServer: {
         hot: true,
         proxy: {
