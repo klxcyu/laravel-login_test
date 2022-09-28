@@ -1,36 +1,19 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+  <div>
+    <v-toolbar
+      dark
+      prominent
+      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-                    <div class="card-body">
-                        I'm an example componen
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
+    </v-toolbar>
+  </div>
 </template>
-
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.');
-
-            const users = [
-                { 'user': 'fred', 'age': 48 },
-                { 'user': 'brand', 'age': 36 },
-                { 'user': 'fred', 'age': 40 },
-                { 'user': 'brand', 'age': 34 }
-            ]
-
-            const sb = _.filter(users, user => {
-                return user.age < 40
-            })
-
-            console.log(sb)
-        }
-    }
-</script>
