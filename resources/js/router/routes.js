@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Index from '~/Index'
+import Login from '~/login/Login'
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,6 @@ const router = new VueRouter({
             component: Login
         }
     ],
-
-
 })
+
+export default router
