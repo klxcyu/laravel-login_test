@@ -5,6 +5,7 @@ import Vuetify from 'vuetify'
 import App from '@/layouts/App'
 import store from '@/store/index'
 import 'vuetify/dist/vuetify.min.css'
+import '@/assets/reset.scss'
 
 Vue.use(lodash)
 Vue.use(Vuetify)

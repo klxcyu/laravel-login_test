@@ -13,7 +13,6 @@
             href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
             rel="stylesheet"
         />
-
     </head>
     <body>
         <div id="app"></div>

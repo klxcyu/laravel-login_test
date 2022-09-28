@@ -25,6 +25,7 @@ mix.webpackConfig({
             '@': __dirname + '/resources/js',
             '~': __dirname + '/resources/js/pages',
         },
+
     },
     devServer: {
         hot: true,
@@ -36,5 +37,7 @@ mix.webpackConfig({
 
 
 mix.js('resources/js/app.js', 'public/js')
-    .vue()
+    .vue({
+
+    })
     .sass('resources/sass/app.scss', 'public/css');

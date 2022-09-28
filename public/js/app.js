@@ -628,15 +628,16 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _router_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/router/routes */ "./resources/js/router/routes.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/layouts/App */ "./resources/js/layouts/App.vue");
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/index */ "./resources/js/store/index.js");
 /* harmony import */ var vuetify_dist_vuetify_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/dist/vuetify.min.css */ "./node_modules/vuetify/dist/vuetify.min.css");
+/* harmony import */ var _assets_reset_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/assets/reset.scss */ "./resources/js/assets/reset.scss");
 
 
 
@@ -644,12 +645,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((lodash__WEBPACK_IMPORTED_MODULE_0___default()));
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_6___default()));
-new vue__WEBPACK_IMPORTED_MODULE_5__["default"]({
+
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use((lodash__WEBPACK_IMPORTED_MODULE_0___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_7___default()));
+new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
   store: _store_index__WEBPACK_IMPORTED_MODULE_3__["default"],
   router: _router_routes__WEBPACK_IMPORTED_MODULE_1__["default"],
-  vuetify: new (vuetify__WEBPACK_IMPORTED_MODULE_6___default())(),
+  vuetify: new (vuetify__WEBPACK_IMPORTED_MODULE_7___default())(),
   render: function render(h) {
     return h(_layouts_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   },
@@ -816,6 +818,30 @@ var getters = {
   getters: getters,
   actions: actions
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./resources/js/assets/reset.scss":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./resources/js/assets/reset.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*\nReset.css\nUpdated: 2021-08-25\nAuthor: Youni\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center, dl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n\n/* make sure to set some focus styles for accessibility */\nbutton, input, select, textarea {\n  font-size: 100%;\n  margin: 0;\n  vertical-align: baseline;\n}\n\nbutton, input {\n  line-height: normal;\n}\n\n:focus {\n  outline: 0;\n}\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol, ul, li {\n  list-style: none;\n}\n\nli {\n  display: list-item;\n}\n\ntable {\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntr {\n  display: table-row;\n}\n\nthead {\n  display: table-header-group;\n}\n\ntbody {\n  display: table-row-group;\n}\n\ntfoot {\n  display: table-footer-group;\n}\n\ncol {\n  display: table-column;\n}\n\ncolgroup {\n  display: table-column-group;\n}\n\ntd,\nth {\n  display: table-cell;\n}\n\ncaption {\n  display: table-caption;\n}\n\nth {\n  font-weight: bolder;\n  text-align: center;\n}\n\ncaption {\n  text-align: center;\n}\n\ntextarea {\n  overflow: auto;\n  vertical-align: top;\n  resize: vertical;\n}\n\na {\n  text-decoration: none;\n}\n\na:focus,\na:active,\na:hover {\n  outline: 0;\n}\n\nh1, h2, h3, h4, h5, h6,\nb, strong {\n  font-weight: bolder;\n}\n\nimg {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n\n/* Begin bidirectionality settings (do not change) */\nBDO[DIR=ltr] {\n  direction: ltr;\n  unicode-bidi: bidi-override;\n}\n\nBDO[DIR=rtl] {\n  direction: rtl;\n  unicode-bidi: bidi-override;\n}\n\n*[DIR=ltr] {\n  direction: ltr;\n  unicode-bidi: embed;\n}\n\n*[DIR=rtl] {\n  direction: rtl;\n  unicode-bidi: embed;\n}\n\n@media print {\n  h1 {\n    page-break-before: always;\n  }\n  h1, h2, h3, h4, h5, h6 {\n    page-break-after: avoid;\n  }\n  ul, ol, dl {\n    page-break-before: avoid;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -18213,6 +18239,36 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./resources/js/assets/reset.scss":
+/*!****************************************!*\
+  !*** ./resources/js/assets/reset.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_reset_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./reset.scss */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./resources/js/assets/reset.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_reset_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_reset_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
