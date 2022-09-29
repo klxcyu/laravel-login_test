@@ -8,8 +8,9 @@
             label="아이디"
             :rules="rules"
             hide-details="auto"
+            v-model="email"
             ></v-text-field>
-            <v-text-field label="패스워드"></v-text-field>
+            <v-text-field label="패스워드" type="password" v-model="password"></v-text-field>
             <v-btn
                 class="ma-2"
                 :loading="loading2"
@@ -30,19 +31,23 @@
 import { createNamespacedHelpers } from 'vuex';
 const { mapActions } = createNamespacedHelpers('modules/progress');
 
+
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 export default {
     data: () => ({
         rules: [
             value => !!value || 'Required.',
             value => (value || '').length <= 20 || 'Max 20 characters',
             value => {
-            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            return pattern.test(value) || 'Invalid e-mail.'
+                return emailPattern.test(value) || 'Invalid e-mail.'
             },
         ],
         loader: null,
         loading2: false,
         progressSettimeout: null,
+        email: null,
+        password: null,
     }),
     mounted() {
         this.settimeout = setTimeout(() => {
@@ -53,20 +58,35 @@ export default {
 
     },
     methods: {
-        ...mapActions(['successProgress', 'destroyProgress', 'startProgress'])
+        ...mapActions(['successProgress', 'destroyProgress', 'startProgress']),
+        login() {
+            this.$axios.post('/api/auth/login', {
+                email: this.email,
+                password : this.password,
+            })
+            .then(res => {
+                console.log(res)
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            .finally(() => {
+                this.loading2 = false
+                this.successProgress()
+                this.loader = null
+            })
+        },
+
     },
     watch: {
         loader () {
+            /* if(!emailPattern.test(this.email)) return false
+            this.login() */
             this.startProgress()
             const l = this.loader
             this[l] = !this[l]
-
-            setTimeout(() => {
-                this[l] = false
-                this.successProgress()
-            }, 3000)
-
-            this.loader = null
+            this.login()
         },
     },
 }

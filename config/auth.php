@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'jwt', // token 에서 jwt로 수정한다.
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*

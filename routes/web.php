@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/test', function() {
+    echo 'test';
+});
+
 Route::get('/{any}', function() {
     return view('welcome');
 })->where('any', '.*');

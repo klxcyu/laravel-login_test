@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import lodash from 'lodash'
+import axios from 'axios'
 import router from '@/router/routes'
 import Vuetify from 'vuetify'
 import App from '@/layouts/App'
@@ -9,6 +10,7 @@ import '@/assets/reset.scss'
 
 Vue.use(lodash)
 Vue.use(Vuetify)
+Vue.prototype.$axios = axios;
 
 new Vue({
     store,
