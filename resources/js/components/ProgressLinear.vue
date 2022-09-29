@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app id="progress_bar">
         <v-progress-linear
             :active="show"
             indeterminate
@@ -46,6 +46,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+#progress_bar {
+    position:fixed;
+    top:48px;
+    left:0;
+    right:0;
+    z-index:4000;
+}
 </style>

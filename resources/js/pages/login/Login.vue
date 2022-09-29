@@ -1,29 +1,29 @@
 <template>
- <v-app>
-    <v-card
-        elevation="2"
-        outlined
-        >
-        <v-text-field
-        label="아이디"
-        :rules="rules"
-        hide-details="auto"
-        ></v-text-field>
-        <v-text-field label="패스워드"></v-text-field>
-        <v-btn
-            class="ma-2"
-            :loading="loading2"
-            :disabled="loading2"
-            color="success"
-            @click="loader = 'loading2'"
-        >
-            Custom Loader
-            <template v-slot:loader>
-                <span>Loading...</span>
-            </template>
-        </v-btn>
-    </v-card>
-</v-app>
+    <v-app class="login_page">
+        <v-card
+            elevation="2"
+            outlined
+            >
+            <v-text-field
+            label="아이디"
+            :rules="rules"
+            hide-details="auto"
+            ></v-text-field>
+            <v-text-field label="패스워드"></v-text-field>
+            <v-btn
+                class="ma-2"
+                :loading="loading2"
+                :disabled="loading2"
+                color="success"
+                @click="loader = 'loading2'"
+            >
+                Custom Loader
+                <template v-slot:loader>
+                    <span>Loading...</span>
+                </template>
+            </v-btn>
+        </v-card>
+    </v-app>
 </template>
 
 <script>
@@ -72,8 +72,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .v-card {
     padding:20px ;
+}
+
+.login_page {
+    padding: 107px 0 0 0 !important;
+    width:500px;
+    margin:0 auto;
 }
 </style>
