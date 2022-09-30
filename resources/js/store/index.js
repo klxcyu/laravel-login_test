@@ -31,7 +31,7 @@ const store = new Vuex.Store({
     modules,
     plugins: [
         createPersistedState({
-            paths: ['modules/user'],
+            paths: ['modules/auth'],
         })
     ]
 });

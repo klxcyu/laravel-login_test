@@ -1,40 +1,42 @@
 <template>
-    <v-app class="login_page">
-        {{ getUserToken }}
-        <v-card
-            elevation="2"
-            outlined
-            >
-            <v-text-field
-            label="아이디"
-            :rules="rules"
-            hide-details="auto"
-            v-model="email"
-            ></v-text-field>
-            <v-text-field label="패스워드" type="password" v-model="password"></v-text-field>
-            <v-btn
-                class="ma-2"
-                :loading="loading2"
-                :disabled="loading2"
-                color="success"
-                @click="loader = 'loading2'"
-            >
-                Custom Loader
-                <template v-slot:loader>
-                    <span>Loading...</span>
-                </template>
-            </v-btn>
-        </v-card>
-    </v-app>
+    <div>
+        <v-card-title>로그인</v-card-title>
+        <v-text-field
+        label="아이디"
+        :rules="rules"
+        hide-details="auto"
+        v-model="email"
+        ></v-text-field>
+        <v-text-field label="패스워드" type="password" v-model="password"></v-text-field>
+        <v-btn
+            class="ma-2"
+            :loading="loading2"
+            :disabled="loading2"
+            color="success"
+            @click="loader = 'loading2'"
+        >
+            Login
+            <template v-slot:loader>
+                <span>Loading...</span>
+            </template>
+        </v-btn>
+        <v-btn
+            class="ma-2"
+            color="warning"
+            to="/auth/register"
+            dark
+        >
+            Register
+        </v-btn>
+    </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-/* const { mapActions } = createNamespacedHelpers('modules/progress');
- */
+import { createNamespacedHelpers } from 'vuex';
+const progress = createNamespacedHelpers('modules/progress');
+const auth = createNamespacedHelpers('modules/auth');
 
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
 export default {
     data: () => ({
         rules: [
@@ -50,6 +52,9 @@ export default {
         email: null,
         password: null,
     }),
+    beforeCreate() {
+        console.log(this.$progressModule)
+    },
     mounted() {
         this.settimeout = setTimeout(() => {
             this.successProgress()
@@ -61,11 +66,11 @@ export default {
 
     },
     computed: {
-        ...mapGetters('modules/user', ['getUserToken']),
+        ...auth.mapGetters(['getUserToken']),
     },
     methods: {
-        ...mapActions('modules/progress', ['successProgress', 'destroyProgress', 'startProgress']),
-        ...mapActions('modules/user', ['setUserToken']),
+        ...progress.mapActions(['successProgress', 'destroyProgress', 'startProgress']),
+        ...auth.mapActions(['setUserToken']),
         login() {
             this.$axios.post('/api/auth/login', {
                 email: this.email,
@@ -73,7 +78,6 @@ export default {
             })
             .then(res => {
                 console.log(res)
-
             })
             .catch(err => {
                 console.log(err)
@@ -100,7 +104,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.v-card {
+/* .v-card {
     padding:20px ;
 }
 
@@ -108,5 +112,5 @@ export default {
     padding: 107px 0 0 0 !important;
     width:500px;
     margin:0 auto;
-}
+} */
 </style>

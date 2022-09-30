@@ -2,15 +2,29 @@
     <v-tabs>
         <v-tab to="/">Main</v-tab>
         <!-- <v-tab>Contents</v-tab> -->
-        <v-tab to="/login">Login</v-tab>
+        <v-tab :to="isLogin ? '/logout' : '/auth/login'">{{ isLogin ? 'logout' : 'login'  }}</v-tab>
+        <v-tab v-if="!isLogin" to="/auth/register">register</v-tab>
     </v-tabs>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+
 export default {
     data() {
         return {
             tab: null,
+        }
+    },
+    computed: {
+        ...mapGetters('modules/auth', [
+            'isLogin',
+        ])
+    },
+    watch: {
+        $route(to, from) {
+
         }
     }
 }
@@ -29,8 +43,4 @@ export default {
     z-index:3000;
     background:#fff;
 }
-
-
-
-
 </style>
