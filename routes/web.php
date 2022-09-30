@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/test', function() {
-    echo 'test';
+Route::get('/test/aa', function() {
+    abort(404);
 });
 
 Route::get('/{any}', function() {

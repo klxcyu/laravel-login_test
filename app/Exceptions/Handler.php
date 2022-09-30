@@ -2,8 +2,14 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Http\Response;
+use Mockery\Exception\InvalidOrderException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class Handler extends ExceptionHandler
 {
@@ -14,6 +20,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         //
+        MethodNotAllowedHttpException::class,
     ];
 
     /**
@@ -34,8 +41,19 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->reportable(function (NotFoundResourceException $e) {
+            return '1234';
         });
+
     }
+
+
+/*     public function render($request, Throwable $e)
+    {
+
+    } */
+
+
+
+
 }
