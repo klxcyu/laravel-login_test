@@ -1,5 +1,6 @@
 <template>
     <v-app class="login_page">
+        {{ getUserToken }}
         <v-card
             elevation="2"
             outlined
@@ -28,9 +29,9 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
-const { mapActions } = createNamespacedHelpers('modules/progress');
-
+import { mapGetters, mapActions } from 'vuex';
+/* const { mapActions } = createNamespacedHelpers('modules/progress');
+ */
 
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -53,12 +54,18 @@ export default {
         this.settimeout = setTimeout(() => {
             this.successProgress()
         }, 1000);
+
+        console.log(this.getUserToken)
     },
     beforeDestroy() {
 
     },
+    computed: {
+        ...mapGetters('modules/user', ['getUserToken']),
+    },
     methods: {
-        ...mapActions(['successProgress', 'destroyProgress', 'startProgress']),
+        ...mapActions('modules/progress', ['successProgress', 'destroyProgress', 'startProgress']),
+        ...mapActions('modules/user', ['setUserToken']),
         login() {
             this.$axios.post('/api/auth/login', {
                 email: this.email,

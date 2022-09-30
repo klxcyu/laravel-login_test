@@ -16,10 +16,12 @@ export default {
             show: true,
         }
     },
+    beforeMount() {
+        this.show = this.$route.matched.some(record => record.meta.leftNavOff) ? false : true
+    },
     watch: {
         $route(to, from) {
-            if(to.name === 'login') this.show = false
-            else this.show = true
+            this.show = to.matched.some(record => record.meta.leftNavOff) ? false : true
         }
     }
 }

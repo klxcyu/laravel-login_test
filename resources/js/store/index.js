@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex)
 
@@ -27,7 +28,12 @@ requireContext.keys().forEach(filePath => {
 
 
 const store = new Vuex.Store({
-    modules
+    modules,
+    plugins: [
+        createPersistedState({
+            paths: ['modules/user'],
+        })
+    ]
 });
 
 export default store;

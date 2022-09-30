@@ -52,8 +52,4 @@ class Handler extends ExceptionHandler
     {
 
     } */
-
-
-
-
 }
