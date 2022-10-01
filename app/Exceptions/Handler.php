@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Database\QueryException;
 use Throwable;
 use Illuminate\Http\Response;
 use Mockery\Exception\InvalidOrderException;
@@ -20,7 +22,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         //
-        MethodNotAllowedHttpException::class,
+        //MethodNotAllowedHttpException::class,
     ];
 
     /**
@@ -41,15 +43,15 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (NotFoundResourceException $e) {
-            return '1234';
+        $this->reportable(function (QueryException $e) {
+            return '1'.$e;
         });
 
     }
 
 
-/*     public function render($request, Throwable $e)
-    {
-
-    } */
+    // public function render($request, Throwable $e)
+    // {
+    //     return '오류났다 지환아';
+    // }
 }
