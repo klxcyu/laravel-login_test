@@ -5,7 +5,7 @@ const authModulePath = 'modules/auth'
 export default {
     install(Vue) {
         const pt = Vue.prototype
-        pt.$auth = {
+        pt.$_AUTH = {
             login: (token) => {
                 auth.dispatcher('login', token, true)
             },

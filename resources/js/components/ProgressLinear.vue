@@ -19,14 +19,8 @@ export default {
 
         }
     },
-    computed: {
-        ...mapGetters([
-            'value',
-            'show',
-        ]),
-    },
     beforeMount() {
-        this.$progress.start()
+        this.$_PROGRESS.start()
     },
     mounted() {
 
@@ -36,13 +30,12 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'value',
             'show',
         ])
     },
     watch: {
         $route(to, from) {
-            this.$progress.start()
+            this.$_PROGRESS.start()
         }
     }
 }

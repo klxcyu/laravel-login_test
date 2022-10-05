@@ -20,7 +20,7 @@ export default {
     methods: {
         authLogic() {
             if(this.isLogin) {
-                this.$auth.logout()
+                this.$_AUTH.logout()
                 this.$router.push('/auth/login')
             }
         }

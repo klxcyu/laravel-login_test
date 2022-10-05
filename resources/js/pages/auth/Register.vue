@@ -122,14 +122,14 @@
         }),
         mounted() {
             this.settimeout = setTimeout(() => {
-                this.$progress.success()
+                this.$_PROGRESS.success()
             }, 1000);
         },
         methods: {
             ...auth.mapActions(['setUserToken', 'setIsLogin']),
             submit () {
                 this.$refs.observer.validate()
-                this.$progress.start()
+                this.$_PROGRESS.start()
                 this.$axios.post('/api/auth/register', {
                     name: this.name,
                     email: this.email,
@@ -138,8 +138,8 @@
                 })
                 .then(res => {
                     if(res.status === 200) {
-                        this.$auth.login(res.data.access_token)
-                        this.$msg.success('회원가입이 완료 되었습니다!')
+                        this.$_AUTH.login(res.data.access_token)
+                        this.$_MSG.success('회원가입이 완료 되었습니다!')
                         this.$router.push('/')
                     }
                 })
@@ -147,24 +147,24 @@
                     if(!err.response.data?.errors) {
                         switch(err.response.data.message) {
                             case 'duplicate':
-                                this.$msg.warning('이미 존재하는 아이디 입니다.')
+                                this.$_MSG.warning('이미 존재하는 아이디 입니다.')
                                 break;
                             case 'The given data was invalid.':
-                                this.$msg.error('요청 데이터가 옳바르지 않습니다!')
+                                this.$_MSG.error('요청 데이터가 옳바르지 않습니다!')
                                 break;
                             default:
-                                this.$msg.error('처리 중 오류가 발생하였습니다.')
+                                this.$_MSG.error('처리 중 오류가 발생하였습니다.')
                                 break;
                         }
                     } else {
                         const errors = err.response.data.errors
                         Object.keys(errors).forEach(k => {
-                            this.$msg.error(errors[k][0])
+                            this.$_MSG.error(errors[k][0])
                         })
                     }
                 })
                 .finally(() => {
-                    setTimeout(() =>this.$progress.success(), 1000)
+                    setTimeout(() =>this.$_PROGRESS.success(), 1000)
                 })
 
             },

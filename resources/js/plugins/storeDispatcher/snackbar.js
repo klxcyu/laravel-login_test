@@ -5,7 +5,7 @@ const snackbarModulePath = 'modules/snackbar'
 export default {
     install(Vue) {
         const pt = Vue.prototype
-        pt.$msg = {
+        pt.$_MSG = {
             error: (msg) => {
                 snackbar.dispatcher('error', msg)
             },
@@ -21,6 +21,7 @@ export default {
         }
     }
 }
+
 
 export const snackbar = {
     dispatcher: (type, msg) => {

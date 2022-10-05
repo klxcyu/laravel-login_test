@@ -25,7 +25,7 @@ export default {
     },
     mounted() {
         this.settimeout = setTimeout(() => {
-            this.$progress.success()
+            this.$_PROGRESS.success()
         }, 1000);
     },
     beforeDestroy() {

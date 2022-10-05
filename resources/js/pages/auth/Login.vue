@@ -95,7 +95,7 @@ export default {
     },
     mounted() {
         this.settimeout = setTimeout(() => {
-            this.$progress.success()
+            this.$_PROGRESS.success()
         }, 1000);
     },
     beforeDestroy() {
@@ -130,7 +130,7 @@ export default {
             if(!this.formHasErrors) this.login()
         },
         login() {
-            this.$progress.start()
+            this.$_PROGRESS.start()
 
             this.$axios.post('/api/auth/login', {
                 email: this.email,
@@ -138,15 +138,15 @@ export default {
             })
             .then(res => {
                 if(res.status === 200) {
-                    this.$auth.login(res.data.access_token)
+                    this.$_AUTH.login(res.data.access_token)
                     this.$router.push('/')
                 }
             })
             .catch(err => {
-                this.$msg.warning('아이디 또는 비밀번호가 옳바르지 않습니다!')
+                this.$_MSG.warning('아이디 또는 비밀번호가 옳바르지 않습니다!')
             })
             .finally(() => {
-                setTimeout(() => this.$progress.success(), 1000)
+                setTimeout(() => this.$_PROGRESS.success(), 1000)
             })
         },
     },
