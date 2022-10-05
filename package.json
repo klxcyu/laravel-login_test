@@ -27,6 +27,7 @@
         "vee-validate": "3",
         "vue-router": "^3.5.4",
         "vuetify": "^2.6.10",
+        "vuetify-toast-snackbar": "^0.6.1",
         "vuex": "^3.6.2",
         "vuex-persistedstate": "^4.1.0"
     }

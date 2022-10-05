@@ -1,11 +1,6 @@
 <template>
     <v-app class="auth_page">
-        <v-card
-            elevation="2"
-            outlined
-        >
-            <router-view />
-        </v-card>
+        <router-view />
     </v-app>
 </template>
 

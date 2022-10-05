@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <Snackbar />
         <ProgressLinear />
         <Header />
         <main>
@@ -15,6 +16,7 @@ import Footer from '@/layouts/Footer'
 import CardImg1 from '@/components/CardImg1'
 import ProgressLinear from '@/components/ProgressLinear'
 import LeftNav from '@/components/LeftNav'
+import Snackbar from '@/components/Snackbar'
 
 export default {
     components: {
@@ -22,7 +24,8 @@ export default {
         Footer,
         CardImg1,
         ProgressLinear,
-        LeftNav
+        LeftNav,
+        Snackbar,
     },
     watch: {
         $route(to, from) {
@@ -33,6 +36,10 @@ export default {
 </script>
 
 <style>
+.snack_bars {
+    z-index:99999 !important;
+}
+
 main {
     width:1200px;
     margin:0 auto;

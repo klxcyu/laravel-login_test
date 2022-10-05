@@ -49,7 +49,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     const matched = param => to.matched.some(record => record.meta[param])
-    const isLogin = store.getters['modules/user/isLogin']
+    const isLogin = store.getters['modules/auth/isLogin']
 
     if(matched('isLoginCheck')) {
         if(isLogin) alert('이미 로그인 하셨습니다.');

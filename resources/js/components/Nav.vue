@@ -2,14 +2,14 @@
     <v-tabs>
         <v-tab to="/">Main</v-tab>
         <!-- <v-tab>Contents</v-tab> -->
-        <v-tab :to="isLogin ? '/logout' : '/auth/login'">{{ isLogin ? 'logout' : 'login'  }}</v-tab>
+        <v-tab @click="authLogic()" :to="isLogin ? '' : '/auth/login'">{{ isLogin ? 'logout' : 'login'  }}</v-tab>
         <v-tab v-if="!isLogin" to="/auth/register">register</v-tab>
     </v-tabs>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
+import { createNamespacedHelpers } from 'vuex'
+const auth = createNamespacedHelpers('modules/auth');
 
 export default {
     data() {
@@ -17,8 +17,17 @@ export default {
             tab: null,
         }
     },
+    methods: {
+        ...auth.mapActions(['logout']),
+        authLogic() {
+            if(this.isLogin) {
+                this.logout()
+                this.$router.push('/auth/login')
+            }
+        }
+    },
     computed: {
-        ...mapGetters('modules/auth', [
+        ...auth.mapGetters([
             'isLogin',
         ])
     },
