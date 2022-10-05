@@ -15,12 +15,9 @@ export default {
 const snackbarModulePath = 'modules/snackbar'
 
 export const snackbar = {
-    setType: (payload) => store.dispatch(`${snackbarModulePath}/setType`, payload),
-    setMessage: (payload) => store.dispatch(`${snackbarModulePath}/setMessage`, payload),
-    setSnackbar: (payload) => store.dispatch(`${snackbarModulePath}/setSnackbar`, payload),
     message: (type, msg) => {
-        snackbar.setType(type)
-        snackbar.setMessage(msg)
-        snackbar.setSnackbar(true)
+        store.dispatch(`${snackbarModulePath}/setType`, type)
+        store.dispatch(`${snackbarModulePath}/setMessage`, msg)
+        store.dispatch(`${snackbarModulePath}/setSnackbar`, true)
     }
 }

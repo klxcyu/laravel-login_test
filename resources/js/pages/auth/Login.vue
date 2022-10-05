@@ -1,10 +1,10 @@
 <template>
     <v-row justify="center">
         <v-col
-        cols="12"
-        sm="10"
-        md="8"
-        lg="6"
+            cols="12"
+            sm="10"
+            md="8"
+            lg="6"
         >
         <v-card ref="form">
             <v-card-title>로그인</v-card-title>
@@ -93,7 +93,6 @@ export default {
         formHasErrors: false,
         email: null,
         password: null,
-
     }),
     beforeCreate() {
 

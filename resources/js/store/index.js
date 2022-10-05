@@ -26,7 +26,6 @@ requireContext.keys().forEach(filePath => {
     }
 })
 
-
 const store = new Vuex.Store({
     modules,
     plugins: [

@@ -1,3 +1,5 @@
+import { AUTH_MU } from '@/store/mutation-types'
+
 const state = {
     token: null,
     isLogin: null,
@@ -9,18 +11,28 @@ const getters = {
 }
 
 const mutations = {
-    setUserToken: (state, payload) => { state.token = payload },
-    setIsLogin: (state, payload) => { state.isLogin = payload },
-    logout: state => {
+    [AUTH_MU.SET_USER_TOKEN]: (state, payload) => {
+        state.token = payload
+    },
+    [AUTH_MU.SET_IS_LOGIN]: (state, payload) => {
+        state.isLogin = payload
+    },
+    [AUTH_MU.LOGOUT]: state => {
         state.token = null
         state.isLogin = null
     }
 }
 
 const actions = {
-    setUserToken: ({ commit }, payload) => { commit('setUserToken', payload) },
-    setIsLogin: ({ commit }, payload) => { commit('setIsLogin', payload) },
-    logout: ({ commit }) => { commit('logout') },
+    setUserToken: ({ commit }, payload) => {
+        commit(AUTH_MU.SET_USER_TOKEN, payload)
+    },
+    setIsLogin: ({ commit }, payload) => {
+        commit(AUTH_MU.SET_IS_LOGIN, payload)
+    },
+    logout: ({ commit }) => {
+        commit(AUTH_MU.LOGOUT)
+    },
 }
 
 export default {

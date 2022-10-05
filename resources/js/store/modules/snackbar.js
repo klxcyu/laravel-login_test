@@ -1,3 +1,5 @@
+import { SNACKBAR_MU } from "@/store/mutation-types"
+
 const state = {
     type: null,
     message: null,
@@ -11,10 +13,16 @@ const getters = {
 }
 
 const mutations = {
-    setType: (state, payload) => { state.type = payload },
-    setMessage: (state, payload) => { state.message = payload },
-    setSnackbar: (state, payload) => { state.snackbar = payload },
-    resetDatas: state => {
+    [SNACKBAR_MU.SET_TYPE]: (state, payload) => {
+        state.type = payload
+    },
+    [SNACKBAR_MU.SET_MESSAGE]: (state, payload) => {
+        state.message = payload
+    },
+    [SNACKBAR_MU.SET_SNACKBAR]: (state, payload) => {
+        state.snackbar = payload
+    },
+    [SNACKBAR_MU.RESET_SNACKBAR_DATAS]: state => {
         state.type = null
         state.message = null
         state.snackbar = false
@@ -22,10 +30,18 @@ const mutations = {
 }
 
 const actions = {
-    setType: ({ commit }, payload) => { commit('setType', payload) },
-    setMessage: ({ commit }, payload) => { commit('setMessage', payload) },
-    setSnackbar: ({ commit }, payload) => { commit('setSnackbar', payload) },
-    resetDatas: ({ commit }) => { commit('resetDatas') },
+    setType: ({ commit }, payload) => {
+        commit(SNACKBAR_MU.SET_TYPE, payload)
+    },
+    setMessage: ({ commit }, payload) => {
+        commit(SNACKBAR_MU.SET_MESSAGE, payload)
+    },
+    setSnackbar: ({ commit }, payload) => {
+        commit(SNACKBAR_MU.SET_SNACKBAR, payload)
+    },
+    resetDatas: ({ commit }) => {
+        commit(SNACKBAR_MU.RESET_SNACKBAR_DATAS)
+    },
 }
 
 export default {

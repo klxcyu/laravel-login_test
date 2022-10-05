@@ -1,3 +1,5 @@
+import { PROGRESS_MU } from '@/store/mutation-types.js'
+
 const state = {
     value: 0,
     show: true,
@@ -12,15 +14,27 @@ const getters = {
 }
 
 const mutations = {
-    startProgress: state => { state.show = true },
-    successProgress: state => { state.show = false },
-    destroyProgress: state => { state.show = false },
+    [PROGRESS_MU.START_PROGRESS]: state => {
+        state.show = true
+    },
+    [PROGRESS_MU.SUCCESS_PROGRESS]: state => {
+        state.show = false
+    },
+    [PROGRESS_MU.DESTROY_PROGRESS]: state => {
+        state.show = false
+    },
 }
 
 const actions = {
-    startProgress: ({ commit }) => { commit('startProgress') },
-    successProgress: ({ commit }) => { commit('successProgress') },
-    destroyProgress: ({ commit }) => { commit('destroyProgress') },
+    startProgress: ({ commit }) => {
+        commit(PROGRESS_MU.START_PROGRESS)
+    },
+    successProgress: ({ commit }) => {
+        commit(PROGRESS_MU.SUCCESS_PROGRESS)
+    },
+    destroyProgress: ({ commit }) => {
+        commit(PROGRESS_MU.DESTROY_PROGRESS)
+    },
 }
 
 export default {
