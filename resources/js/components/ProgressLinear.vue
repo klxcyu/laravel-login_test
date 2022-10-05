@@ -11,7 +11,7 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
-const { mapGetters, mapActions } = createNamespacedHelpers('modules/progress');
+const { mapGetters } = createNamespacedHelpers('modules/progress');
 
 export default {
     data () {
@@ -26,16 +26,13 @@ export default {
         ]),
     },
     beforeMount() {
-        this.startProgress()
+        this.$progress.start()
     },
     mounted() {
 
     },
     methods: {
-        ...mapActions([
-            'startProgress',
-            'destroyProgress'
-        ])
+
     },
     computed: {
         ...mapGetters([
@@ -45,8 +42,7 @@ export default {
     },
     watch: {
         $route(to, from) {
-
-            this.startProgress()
+            this.$progress.start()
         }
     }
 }

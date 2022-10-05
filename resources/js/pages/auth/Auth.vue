@@ -17,7 +17,7 @@ export default {
 
 .auth_page {
     padding: 107px 0 0 0 !important;
-    width:800px;
+    max-width:800px;
     margin:0 auto;
 }
 </style>

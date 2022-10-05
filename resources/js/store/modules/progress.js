@@ -20,20 +20,14 @@ const mutations = {
     [PROGRESS_MU.SUCCESS_PROGRESS]: state => {
         state.show = false
     },
-    [PROGRESS_MU.DESTROY_PROGRESS]: state => {
-        state.show = false
-    },
 }
 
 const actions = {
-    startProgress: ({ commit }) => {
+    start: ({ commit }) => {
         commit(PROGRESS_MU.START_PROGRESS)
     },
-    successProgress: ({ commit }) => {
+    success: ({ commit }) => {
         commit(PROGRESS_MU.SUCCESS_PROGRESS)
-    },
-    destroyProgress: ({ commit }) => {
-        commit(PROGRESS_MU.DESTROY_PROGRESS)
     },
 }
 

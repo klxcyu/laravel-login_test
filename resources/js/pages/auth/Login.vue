@@ -74,10 +74,6 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
-const progress = createNamespacedHelpers('modules/progress');
-const auth = createNamespacedHelpers('modules/auth');
-
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 export default {
@@ -99,7 +95,7 @@ export default {
     },
     mounted() {
         this.settimeout = setTimeout(() => {
-            this.successProgress()
+            this.$progress.success()
         }, 1000);
     },
     beforeDestroy() {
@@ -114,8 +110,6 @@ export default {
         },
     },
     methods: {
-        ...progress.mapActions(['successProgress', 'destroyProgress', 'startProgress']),
-        ...auth.mapActions(['setUserToken', 'setIsLogin']),
         resetForm() {
             this.errorMessages = []
             this.formHasErrors = false
@@ -136,7 +130,7 @@ export default {
             if(!this.formHasErrors) this.login()
         },
         login() {
-            this.startProgress()
+            this.$progress.start()
 
             this.$axios.post('/api/auth/login', {
                 email: this.email,
@@ -144,8 +138,7 @@ export default {
             })
             .then(res => {
                 if(res.status === 200) {
-                    this.setUserToken(res.data.access_token)
-                    this.setIsLogin(true)
+                    this.$auth.login(res.data.access_token)
                     this.$router.push('/')
                 }
             })
@@ -153,7 +146,7 @@ export default {
                 this.$msg.warning('아이디 또는 비밀번호가 옳바르지 않습니다!')
             })
             .finally(() => {
-                setTimeout(() => this.successProgress(), 1000)
+                setTimeout(() => this.$progress.success(), 1000)
             })
         },
     },

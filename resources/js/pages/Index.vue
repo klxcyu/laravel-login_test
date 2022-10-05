@@ -9,17 +9,6 @@
 <script>
 import Card1 from '@/components/Card1'
 import CardImg1 from '@/components/CardImg1'
-import { createNamespacedHelpers } from 'vuex';
-const { mapActions, mapGetters } = createNamespacedHelpers('modules/progress');
-
-const gradients = [
-    ['#222'],
-    ['#42b3f4'],
-    ['red', 'orange', 'yellow'],
-    ['purple', 'violet'],
-    ['#00c6ff', '#F0F', '#FF0'],
-    ['#f72047', '#ffd200', '#1feaea'],
-  ]
 
 export default {
     components: {
@@ -36,31 +25,22 @@ export default {
     },
     mounted() {
         this.settimeout = setTimeout(() => {
-            this.successProgress()
+            this.$progress.success()
         }, 1000);
     },
     beforeDestroy() {
-        /* this.destroyProgress() */
         clearTimeout(this.settimeout)
     },
     methods: {
-        ...mapActions([
-            'startProgress',
-            'successProgress',
-            'destroyProgress'
-        ])
+
     },
     computed: {
-        ...mapGetters([
-            'value',
-            'show',
-        ]),
-    },
 
+    },
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 ul li {
     padding:0 0 10px 0;
 }

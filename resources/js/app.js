@@ -5,7 +5,9 @@ import router from '@/router/routes'
 import Vuetify from 'vuetify'
 import colors from 'vuetify/lib/util/colors'
 import storeModules from '@/plugins/storeModules'
-import snackbar from '@/plugins/snackbarEvent'
+import snackbar from '@/plugins/storeDispatcher/snackbar'
+import auth from '@/plugins/storeDispatcher/auth'
+import progress from '@/plugins/storeDispatcher/progress'
 import VuetifyToast from 'vuetify-toast-snackbar'
 import App from '@/layouts/App'
 import store from '@/store/index'
@@ -28,6 +30,8 @@ Vue.use(Vuetify)
 }) */
 Vue.use(storeModules)
 Vue.use(snackbar)
+Vue.use(auth)
+Vue.use(progress)
 Vue.use(VuetifyToast, {
     x: 'top', // default
     y: 'top', // default

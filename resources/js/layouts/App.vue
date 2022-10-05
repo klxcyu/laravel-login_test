@@ -41,7 +41,8 @@ export default {
 }
 
 main {
-    width:1200px;
+    max-width:1200px;
+    padding:0 20px;
     margin:0 auto;
 }
 

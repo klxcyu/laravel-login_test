@@ -18,10 +18,9 @@ export default {
         }
     },
     methods: {
-        ...auth.mapActions(['logout']),
         authLogic() {
             if(this.isLogin) {
-                this.logout()
+                this.$auth.logout()
                 this.$router.push('/auth/login')
             }
         }

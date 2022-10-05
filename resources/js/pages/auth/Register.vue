@@ -122,16 +122,14 @@
         }),
         mounted() {
             this.settimeout = setTimeout(() => {
-                this.successProgress()
+                this.$progress.success()
             }, 1000);
         },
-
         methods: {
-            ...progress.mapActions(['successProgress', 'destroyProgress', 'startProgress']),
             ...auth.mapActions(['setUserToken', 'setIsLogin']),
             submit () {
                 this.$refs.observer.validate()
-                this.startProgress()
+                this.$progress.start()
                 this.$axios.post('/api/auth/register', {
                     name: this.name,
                     email: this.email,
@@ -140,8 +138,7 @@
                 })
                 .then(res => {
                     if(res.status === 200) {
-                        this.setUserToken(res.data.access_token)
-                        this.setIsLogin(true)
+                        this.$auth.login(res.data.access_token)
                         this.$msg.success('회원가입이 완료 되었습니다!')
                         this.$router.push('/')
                     }
@@ -167,7 +164,7 @@
                     }
                 })
                 .finally(() => {
-                    setTimeout(() => this.successProgress(), 1000)
+                    setTimeout(() =>this.$progress.success(), 1000)
                 })
 
             },
