@@ -7,17 +7,18 @@ export default {
         const pt = Vue.prototype
         pt.$auth = {
             login: (token) => {
-                auth.authProcess('login', token, true)
+                auth.dispatcher('login', token, true)
             },
             logout: () => {
-                auth.authProcess('logout')
+                auth.dispatcher('logout')
             },
         }
     }
 }
 
+
 export const auth = {
-    authProcess: (type, token = null, isLogin = null) => {
+    dispatcher: (type, token = null, isLogin = null) => {
         if(type === 'login') {
             store.dispatch(`${authModulePath}/setUserToken`, token)
             store.dispatch(`${authModulePath}/setIsLogin`, isLogin)
