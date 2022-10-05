@@ -4,6 +4,7 @@
             v-model="snackbar"
             :timeout="timeout"
             top
+            right
             centered
             :color="color"
         >

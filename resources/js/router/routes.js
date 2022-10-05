@@ -50,14 +50,15 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     const matched = param => to.matched.some(record => record.meta[param])
     const isLogin = store.getters['modules/auth/isLogin']
+    const msg = router.app.$_MSG
 
     if(matched('isLoginCheck')) {
-        if(isLogin) alert('이미 로그인 하셨습니다.');
+        if(isLogin) msg.warning('이미 로그인 하셨습니다.');
     }
 
     if(matched('requiresAuth')) {
         if(!isLogin) {
-            alert('로그인이 필요한 서비스 입니다!')
+            msg.warning('로그인이 필요한 서비스 입니다!')
             next({
                 name: 'login',
             })
