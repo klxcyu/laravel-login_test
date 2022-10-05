@@ -30,9 +30,11 @@ export default {
 <style scoped lang="scss">
 ul {
     position: fixed;
-    width: 200px;
-    top: 48px;
-    padding: 20px 0;
+    top: 0;
+    left: 100px;
+    border-right: 1px solid #ddd;
+    bottom: 0;
+    padding: 70px 50px 70px 0;
 }
 
 

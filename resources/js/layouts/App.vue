@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <v-app id="app">
         <Snackbar />
         <ProgressLinear />
         <Header />
@@ -7,7 +7,7 @@
             <LeftNav />
             <router-view class="main_contents" />
         </main>
-    </div>
+    </v-app>
 </template>
 
 <script>
@@ -41,13 +41,17 @@ export default {
 }
 
 main {
-    max-width:1200px;
-    padding:0 20px;
-    margin:0 auto;
+    padding: 0 20px;
+    display: flex !important;
+    justify-content: right;
 }
 
-.main_contents {
-    padding: 70px 0 0 200px;
+.v-application .main_contents {
+    padding: 70px 0 0 50px;
+    max-width: 1000px;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .v-application--wrap {

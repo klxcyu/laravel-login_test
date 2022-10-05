@@ -79,9 +79,6 @@
 <script>
     import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
     import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-    import { createNamespacedHelpers } from 'vuex';
-    const progress = createNamespacedHelpers('modules/progress');
-    const auth = createNamespacedHelpers('modules/auth');
     setInteractionMode('eager')
 
     extend('digits', {
@@ -126,7 +123,6 @@
             }, 1000);
         },
         methods: {
-            ...auth.mapActions(['setUserToken', 'setIsLogin']),
             submit () {
                 this.$refs.observer.validate()
                 this.$_PROGRESS.start()
@@ -166,7 +162,6 @@
                 .finally(() => {
                     setTimeout(() =>this.$_PROGRESS.success(), 1000)
                 })
-
             },
             clear () {
                 this.name = ''

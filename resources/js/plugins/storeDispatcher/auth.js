@@ -23,7 +23,7 @@ export const auth = {
             store.dispatch(`${authModulePath}/setUserToken`, token)
             store.dispatch(`${authModulePath}/setIsLogin`, isLogin)
         } else {
-            store.dispatch(`${authModulePath}/logout`)
+            store.dispatch(`${authModulePath}/${type}`)
         }
     }
 }

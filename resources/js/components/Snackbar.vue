@@ -1,5 +1,5 @@
 <template>
-    <v-app id="snackbar_wrap">
+    <div id="snackbar_wrap">
         <v-snackbar
             v-model="snackbar"
             :timeout="timeout"
@@ -15,7 +15,7 @@
                 {{ icons }}
             </v-icon>
         </v-snackbar>
-    </v-app>
+    </div>
 </template>
 
 <script>
