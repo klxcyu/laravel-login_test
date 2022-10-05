@@ -119,7 +119,7 @@ export default {
     methods: {
         ...progress.mapActions(['successProgress', 'destroyProgress', 'startProgress']),
         ...auth.mapActions(['setUserToken', 'setIsLogin']),
-        resetForm () {
+        resetForm() {
             this.errorMessages = []
             this.formHasErrors = false
 
@@ -127,13 +127,11 @@ export default {
                 this.$refs[f].reset()
             })
         },
-        submit () {
+        submit() {
             this.formHasErrors = false
 
             Object.keys(this.form).forEach(f => {
-                console.log(this.form[f])
                 if (!this.form[f]) this.formHasErrors = true
-
                 this.$refs[f].validate(true)
             })
 
@@ -158,7 +156,6 @@ export default {
             })
             .finally(() => {
                 setTimeout(() => this.successProgress(), 1000)
-
             })
         },
     },

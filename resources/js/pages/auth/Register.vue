@@ -1,7 +1,7 @@
 <template>
     <v-card
-            elevation="2"
-            outlined
+        elevation="2"
+        outlined
     >
         <validation-observer
             ref="observer"
