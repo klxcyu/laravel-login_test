@@ -77,9 +77,9 @@
 import { createNamespacedHelpers } from 'vuex';
 const progress = createNamespacedHelpers('modules/progress');
 const auth = createNamespacedHelpers('modules/auth');
-const sb = createNamespacedHelpers('modules/snackbar');
 
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 export default {
     data: () => ({
         emailRules: [
@@ -106,8 +106,6 @@ export default {
 
     },
     computed: {
-        ...auth.mapGetters(['getUserToken']),
-        ...sb.mapGetters(['snackbar']),
         form () {
             return {
                 email: this.email,
@@ -127,10 +125,11 @@ export default {
             })
         },
         submit() {
-            this.formHasErrors = false
+            this.formHasErrors = emailPattern.test(this.email) ? false : true
 
             Object.keys(this.form).forEach(f => {
                 if (!this.form[f]) this.formHasErrors = true
+
                 this.$refs[f].validate(true)
             })
 

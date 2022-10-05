@@ -37,12 +37,18 @@ export default {
             'destroyProgress'
         ])
     },
+    computed: {
+        ...mapGetters([
+            'value',
+            'show',
+        ])
+    },
     watch: {
         $route(to, from) {
+
             this.startProgress()
         }
     }
-
 }
 </script>
 

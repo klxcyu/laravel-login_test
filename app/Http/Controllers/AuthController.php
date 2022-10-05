@@ -49,7 +49,11 @@ class AuthController extends Controller
 
     //회원가입
     public function register(RegisterRequest $request) {
-        $newUser = User::create($request->all());
+        if(User::where('email', $request->get('email'))->count()) {
+            return response()->json(['message' => 'duplicate'], 401);
+        }
+
+        User::create($request->all());
         return $this->login($request);
     }
 

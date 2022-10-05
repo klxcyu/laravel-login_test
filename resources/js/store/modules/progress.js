@@ -2,7 +2,7 @@ import { PROGRESS_MU } from '@/store/mutation-types.js'
 
 const state = {
     value: 0,
-    show: true,
+    show: false,
     interval: 0,
 }
 
