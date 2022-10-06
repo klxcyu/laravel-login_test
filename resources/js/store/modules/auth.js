@@ -3,7 +3,6 @@ import msg from '@/plugins/storeDispatcher/snackbar'
 import router from '@/router/routes'
 import * as authApi from '@/api/auth'
 import { AUTH_MU } from '@/store/mutation-types'
-import auth from '../../plugins/storeDispatcher/auth'
 
 Vue.use(msg)
 const vue = new Vue()
@@ -98,9 +97,15 @@ const actions = {
     //유저 토큰 체크
     tokenChecking: async ({ commit }) => {
         try {
-            await authApi.tokenChecking()
+            const res = await authApi.tokenChecking()
+            if(res.status === 200) {
+                const rt = await authApi.refreshToken()
+                if(rt.status === 200) {
+                    actions.setUserAuth(commit, rt.data.access_token, true)
+                }
+            }
         } catch(err) {
-            actions.setUserAuth(commit, null, null)
+            commit(AUTH_MU.LOGOUT)
             router.push('/auth/login')
         }
     }
