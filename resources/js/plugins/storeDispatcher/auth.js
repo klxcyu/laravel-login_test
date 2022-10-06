@@ -6,24 +6,25 @@ export default {
     install(Vue) {
         const pt = Vue.prototype
         pt.$_AUTH = {
-            login: (token) => {
-                auth.dispatcher('login', token, true)
+            login: (payload) => {
+                auth.dispatcher('login', payload)
             },
             logout: () => {
                 auth.dispatcher('logout')
             },
+            register: (payload) => {
+                auth.dispatcher('register', payload)
+            },
+            tokenChecking: () => {
+                auth.dispatcher('tokenChecking')
+            }
         }
     }
 }
-
 
 export const auth = {
-    dispatcher: (type, token = null, isLogin = null) => {
-        if(type === 'login') {
-            store.dispatch(`${authModulePath}/setUserToken`, token)
-            store.dispatch(`${authModulePath}/setIsLogin`, isLogin)
-        } else {
-            store.dispatch(`${authModulePath}/${type}`)
-        }
+    dispatcher: (type, payload = null) => {
+        store.dispatch(`${authModulePath}/${type}`, payload)
     }
 }
+

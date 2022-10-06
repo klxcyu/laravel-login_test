@@ -67,9 +67,7 @@
             </v-btn>
             </v-card-actions>
         </v-card>
-
         </v-col>
-
   </v-row>
 </template>
 
@@ -94,9 +92,7 @@ export default {
 
     },
     mounted() {
-        this.settimeout = setTimeout(() => {
-            this.$_PROGRESS.success()
-        }, 1000);
+
     },
     beforeDestroy() {
 
@@ -122,32 +118,12 @@ export default {
             this.formHasErrors = emailPattern.test(this.email) ? false : true
 
             Object.keys(this.form).forEach(f => {
-                if (!this.form[f]) this.formHasErrors = true
+                if(!this.form[f]) this.formHasErrors = true
 
                 this.$refs[f].validate(true)
             })
 
-            if(!this.formHasErrors) this.login()
-        },
-        login() {
-            this.$_PROGRESS.start()
-
-            this.$axios.post('/api/auth/login', {
-                email: this.email,
-                password : this.password,
-            })
-            .then(res => {
-                if(res.status === 200) {
-                    this.$_AUTH.login(res.data.access_token)
-                    this.$router.push('/')
-                }
-            })
-            .catch(err => {
-                this.$_MSG.warning('아이디 또는 비밀번호가 옳바르지 않습니다!')
-            })
-            .finally(() => {
-                setTimeout(() => this.$_PROGRESS.success(), 1000)
-            })
+            if(!this.formHasErrors) this.$_AUTH.login(this.form)
         },
     },
     watch: {

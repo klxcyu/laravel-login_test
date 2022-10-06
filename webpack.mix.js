@@ -25,7 +25,6 @@ mix.webpackConfig({
             '@': __dirname + '/resources/js',
             '~': __dirname + '/resources/js/pages',
         },
-
     },
     devServer: {
         hot: true,

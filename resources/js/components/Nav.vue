@@ -4,6 +4,7 @@
         <!-- <v-tab>Contents</v-tab> -->
         <v-tab @click="authLogic()" :to="isLogin ? '' : '/auth/login'">{{ isLogin ? 'logout' : 'login'  }}</v-tab>
         <v-tab v-if="!isLogin" to="/auth/register">register</v-tab>
+        <v-tab v-if="isLogin" @click="tokenCheck()">tokenCheck</v-tab>
     </v-tabs>
 </template>
 
@@ -21,9 +22,11 @@ export default {
         authLogic() {
             if(this.isLogin) {
                 this.$_AUTH.logout()
-                this.$router.push('/auth/login')
             }
-        }
+        },
+        tokenCheck() {
+            this.$_AUTH.tokenChecking()
+        },
     },
     computed: {
         ...auth.mapGetters([

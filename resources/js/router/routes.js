@@ -48,9 +48,11 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+    const prs = router.app.$_PROGRESS
+    prs.start()
+    const msg = router.app.$_MSG
     const matched = param => to.matched.some(record => record.meta[param])
     const isLogin = store.getters['modules/auth/isLogin']
-    const msg = router.app.$_MSG
 
     if(matched('isLoginCheck')) {
         if(isLogin) msg.warning('이미 로그인 하셨습니다.');
@@ -67,6 +69,22 @@ router.beforeEach((to, from, next) => {
     } else {
         next()
     }
+
+    prsSuccess()
 })
+
+router.afterEach((to, from) => {
+    prsSuccess()
+})
+
+let prsTimeout = null
+function prsSuccess() {
+    const prs = router.app.$_PROGRESS
+    if(prsTimeout) clearTimeout(prsTimeout)
+
+    prsTimeout = setTimeout(() => {
+        prs.success()
+    }, 1000);
+}
 
 export default router

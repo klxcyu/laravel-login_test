@@ -20,7 +20,7 @@ export default {
         }
     },
     beforeMount() {
-        this.$_PROGRESS.start()
+
     },
     mounted() {
 
@@ -35,7 +35,7 @@ export default {
     },
     watch: {
         $route(to, from) {
-            this.$_PROGRESS.start()
+
         }
     }
 }

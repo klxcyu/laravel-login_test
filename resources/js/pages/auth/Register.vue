@@ -8,7 +8,7 @@
             v-slot="{ invalid }"
         >
             <v-card-title> 회원가입 </v-card-title>
-            <form @submit.prevent="submit">
+            <form ref="form" @submit.prevent="submit">
                 <validation-provider
                     v-slot="{ errors }"
                     name="name"
@@ -118,50 +118,22 @@
             password_confirmation: '',
         }),
         mounted() {
-            this.settimeout = setTimeout(() => {
-                this.$_PROGRESS.success()
-            }, 1000);
+
+        },
+        computed: {
+            form() {
+                return {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    password_confirmation: this.password_confirmation,
+                }
+            }
         },
         methods: {
             submit () {
                 this.$refs.observer.validate()
-                this.$_PROGRESS.start()
-                this.$axios.post('/api/auth/register', {
-                    name: this.name,
-                    email: this.email,
-                    password: this.password,
-                    password_confirmation: this.password_confirmation
-                })
-                .then(res => {
-                    if(res.status === 200) {
-                        this.$_AUTH.login(res.data.access_token)
-                        this.$_MSG.success('회원가입이 완료 되었습니다!')
-                        this.$router.push('/')
-                    }
-                })
-                .catch(err => {
-                    if(!err.response.data?.errors) {
-                        switch(err.response.data.message) {
-                            case 'duplicate':
-                                this.$_MSG.warning('이미 존재하는 아이디 입니다.')
-                                break;
-                            case 'The given data was invalid.':
-                                this.$_MSG.error('요청 데이터가 옳바르지 않습니다!')
-                                break;
-                            default:
-                                this.$_MSG.error('처리 중 오류가 발생하였습니다.')
-                                break;
-                        }
-                    } else {
-                        const errors = err.response.data.errors
-                        Object.keys(errors).forEach(k => {
-                            this.$_MSG.error(errors[k][0])
-                        })
-                    }
-                })
-                .finally(() => {
-                    setTimeout(() =>this.$_PROGRESS.success(), 1000)
-                })
+                this.$_AUTH.register(this.form)
             },
             clear () {
                 this.name = ''
