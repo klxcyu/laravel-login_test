@@ -6,10 +6,10 @@
     
 <h3>작업내용</h3>
 <ul>
-    <li>- snackbar 플러그인 제작</li>
-    <li>- vuex dispatch 플러그인 호출방식으로 모듈화</li>
-    <li>- jwt/tymon 라이브러리를 통한 라라벨 컨트롤러 구성중</li>
-    <li>- vue2 component Api 적용중 (10/7 ~)</li>        
+    <li> snackbar 플러그인 제작</li>
+    <li> vuex dispatch 플러그인 호출방식으로 모듈화</li>
+    <li> jwt/tymon 라이브러리를 통한 라라벨 컨트롤러 구성중</li>
+    <li> vue2 component api 적용중 (10/7 ~)</li>        
 </ul>
 
 
