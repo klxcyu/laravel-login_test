@@ -1,6 +1,6 @@
 <h1>JWT토큰 인증 연습용 프로젝트</h1>
 <blockquote>JWT토큰 인증 방식을 보다 깊게 공부해보자 시작하였다.</blockquote>
-<div>
+
 <h2>사용버전 및 UI 라이브러리</h2>
 
 
@@ -9,8 +9,7 @@
     
 
 
-</div>
-    
+
 <h3>작업내용</h3>
 <ul>
     <li> snackbar 플러그인 제작</li>
