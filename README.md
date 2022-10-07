@@ -8,7 +8,7 @@
 <h2>Version</h2>
 
 ![Generic badge](https://img.shields.io/badge/Laravel-8.7.5-lightgrey.svg?style=for-the-badge)
-![Generic badge](https://img.shields.io/badge/Vue.js-2.6.12-green.svg?style=for-the-badge)
+![Generic badge](https://img.shields.io/badge/Vue.js-2.6.12-lightgrey.svg?style=for-the-badge)
 
 
 <h3>작업내용</h3>
