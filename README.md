@@ -2,9 +2,9 @@
 <blockquote>JWT토큰 인증 방식을 보다 깊게 공부해보자 시작하였다.</blockquote>
 <div>
 <h2>사용버전 및 UI 라이브러리</h2>
-<img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white">
+
 <ol>
-    <li>laravel 8.7<</li>
+    <li><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white"> 8.7<</li>
     <li>Vue 2.6</li>
     <li>Vuetify</li>
 </ol>
