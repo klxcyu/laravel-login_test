@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=Vuetify&logoColor=white" >
 
 <h2>Version</h2>
+
 ![Generic badge](https://img.shields.io/badge/version-1.1.1-green.svg)
 
 
