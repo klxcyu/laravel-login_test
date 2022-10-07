@@ -1,5 +1,5 @@
-<h1>JWT 토큰인증 연습용 프로젝트</h1>
-<blockquote>안녕</blockquote>
+<h1>JWT토큰 인증 연습용 프로젝트</h1>
+<blockquote>JWT토큰 인증 방식을 보다 깊게 공부해보자 시작하였다.</blockquote>
 <div>
 <h2>사용버전 및 UI 라이브러리</h2>
 <ol>
@@ -7,7 +7,7 @@
     <li>Vue 2.6</li>
     <li>Vuetify</li>
 </ol>
-<strong>Laravel8 / vue2 / vuetify-lib</strong>
+
 </div>
     
 <h3>작업내용</h3>
