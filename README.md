@@ -3,7 +3,7 @@
 
 <h2>Tech</h2>
 <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white" >
-<img src="https://img.shields.io/badge/Vue-4FC08D?style=for-the-badge&logo=Vue&logoColor=white" >
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=Vue&logoColor=white" >
 
 <h2>Version</h2>
 ![Generic badge](https://img.shields.io/badge/version-1.1.1-green.svg)
