@@ -1,4 +1,3 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=내용입력&fontSize=90" />
 <h1>JWT토큰 인증 연습용 프로젝트</h1>
 <blockquote>JWT토큰 인증 방식을 보다 깊게 공부해보자 시작하였다.</blockquote>
 
