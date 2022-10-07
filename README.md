@@ -1,12 +1,12 @@
 <h1>JWT토큰 인증 연습용 프로젝트</h1>
 <blockquote>JWT토큰 인증 방식을 보다 깊게 공부해보자 시작하였다.</blockquote>
 
-<h2>사용버전 및 UI 라이브러리</h2>
-
+<h2>Tech</h2>
 <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white" >
+<img src="https://img.shields.io/badge/Vue-4FC08D?style=for-the-badge&logo=Vue&logoColor=white" >
+
+<h2>Version</h2>
 ![Generic badge](https://img.shields.io/badge/version-1.1.1-green.svg)
-
-
 
 
 <h3>작업내용</h3>
@@ -16,6 +16,7 @@
     <li> jwt/tymon 라이브러리를 통한 라라벨 컨트롤러 구성중</li>
     <li> vue2 component api 적용중 (10/7 ~)</li>        
 </ul>
+
 
 
 
