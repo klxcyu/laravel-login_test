@@ -89,7 +89,7 @@ const actions = {
                 }
             } else {
                 Object.keys(data.errors).forEach(k => {
-                    vue.$_MSG.error(errors[k][0])
+                    vue.$_MSG.error(data.errors[k][0])
                 })
             }
         }

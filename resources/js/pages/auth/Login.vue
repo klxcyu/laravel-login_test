@@ -63,7 +63,7 @@
                 text
                 to="/auth/register"
             >
-                회원가입
+                회원가입 {{ test }}
             </v-btn>
             </v-card-actions>
         </v-card>
@@ -71,10 +71,20 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
+import { computed, ref } from '@vue/composition-api'
+
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 export default {
+    setup() {
+        const test = null
+
+
+        return {
+            test,
+        }
+    },
     data: () => ({
         emailRules: [
             value => !!value || '아이디를 입력해 주세요.',

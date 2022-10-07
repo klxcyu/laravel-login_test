@@ -77,86 +77,71 @@
 </template>
 
 <script>
-import { ref, onMounted, computed, getCurrentInstance } from 'vue'
-import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
-import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-setInteractionMode('eager')
+    import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
+    import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+    setInteractionMode('eager')
 
-extend('digits', {
-    ...digits,
-    message: '{_field_} needs to be {length} digits. ({_value_})',
-})
+    extend('digits', {
+        ...digits,
+        message: '{_field_} needs to be {length} digits. ({_value_})',
+    })
 
-extend('required', {
-    ...required,
-    message: '필수항목 입니다!',
-})
+    extend('required', {
+        ...required,
+        message: '필수항목 입니다!',
+    })
 
-extend('max', {
-    ...max,
-    message: '최대 글자수는 {length}자 입니다.',
-})
+    extend('max', {
+        ...max,
+        message: '최대 글자수는 {length}자 입니다.',
+    })
 
-extend('regex', {
-    ...regex,
-    message: '{_field_} {_value_} does not match {regex}',
-})
+    extend('regex', {
+        ...regex,
+        message: '{_field_} {_value_} does not match {regex}',
+    })
 
-extend('email', {
-    ...email,
-    message: '이메일 형식이 아닙니다.',
-})
+    extend('email', {
+        ...email,
+        message: '이메일 형식이 아닙니다.',
+    })
 
-export default {
-    components: {
-        ValidationProvider,
-        ValidationObserver,
-    },
-    setup() {
-        const app = getCurrentInstance().proxy
+    export default {
+        components: {
+            ValidationProvider,
+            ValidationObserver,
+        },
+        data: () => ({
+            name: '',
+            email: '',
+            password: '',
+            password_confirmation: '',
+        }),
+        mounted() {
 
-        let name = ref('')
-        let email = ref('')
-        let password = ref('')
-        let password_confirmation = ref('')
-
-        const observer = ref(null)
-
-        onMounted(() => {
-
-        })
-
-        const form = computed(() => {
-            return {
-                name: name.value,
-                email: email.value,
-                password: password.value,
-                password_confirmation: password_confirmation.value,
+        },
+        computed: {
+            form() {
+                return {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    password_confirmation: this.password_confirmation,
+                }
             }
-        })
-
-        function submit() {
-            observer.value.validate()
-            app.$_AUTH.register(form.value)
-        }
-
-        function clear() {
-            name.value = ''
-            email.value = ''
-            observer.value.reset()
-        }
-
-        return {
-            name,
-            email,
-            password,
-            password_confirmation,
-            observer,
-            submit,
-            clear,
-        }
+        },
+        methods: {
+            submit () {
+                this.$refs.observer.validate()
+                this.$_AUTH.register(this.form)
+            },
+            clear () {
+                this.name = ''
+                this.email = ''
+                this.$refs.observer.reset()
+            },
+        },
     }
-}
 </script>
 
 <style scoped lang="scss">

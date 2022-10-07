@@ -4,7 +4,12 @@ import Index from '~/Index'
 import Auth from '~/auth/Auth'
 import Login from '~/auth/Login'
 import Register from '~/auth/Register'
+
+import Test from '~/auth/Test'
+
 import store from '@/store/index'
+
+
 
 Vue.use(VueRouter)
 
@@ -37,6 +42,15 @@ const router = new VueRouter({
                     path: 'register',
                     name: 'register',
                     component: Register,
+                    meta: {
+                        leftNavOff: true,
+                        isLoginCheck: true,
+                    }
+                },
+                {
+                    path: 'test',
+                    name: 'test',
+                    component: Test,
                     meta: {
                         leftNavOff: true,
                         isLoginCheck: true,

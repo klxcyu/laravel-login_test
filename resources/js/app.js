@@ -3,6 +3,7 @@ import lodash from 'lodash'
 import axios from 'axios'
 import router from '@/router/routes'
 import Vuetify from 'vuetify'
+import vueCompositionApi from '@vue/composition-api'
 import colors from 'vuetify/lib/util/colors'
 import storeModules from '@/plugins/storeModules'
 import snackbar from '@/plugins/storeDispatcher/snackbar'
@@ -17,6 +18,7 @@ import '@/assets/scss/reset.scss'
 
 Vue.use(lodash)
 Vue.use(Vuetify)
+
 /* export default new Vuetify({
     theme: {
         themes: {
