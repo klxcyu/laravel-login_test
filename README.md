@@ -3,8 +3,7 @@
 
 <h2>사용버전 및 UI 라이브러리</h2>
 
-
-        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white" >
+<img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white" >
   
     
 
