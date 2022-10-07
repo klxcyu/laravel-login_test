@@ -3,14 +3,11 @@
 <div>
 <h2>사용버전 및 UI 라이브러리</h2>
 
-<ol>
-    <li>
+
         <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=Laravel&logoColor=white">
         ![Generic badge](https://img.shields.io/badge/version-8.7.6-green.svg)
-    </li>
-    <li>Vue 2.6</li>
-    <li>Vuetify</li>
-</ol>
+    
+
 
 </div>
     
