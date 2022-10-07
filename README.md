@@ -1,5 +1,5 @@
 <h1>JWT 토큰인증 연습용 프로젝트</h1>
-<q>안녕</q>
+<blockquote>안녕</blockquote>
 <div>
 <h2>사용버전 및 UI 라이브러리</h2>
 <ol>
